@@ -13,12 +13,18 @@ import SocialIcons from "../SocialIcons";
 const Footer = () => {
   const useStyles = makeStyles((theme) => ({
     footer: {
+      maxWidth: "100%",
       background: theme.palette.common.blue,
       padding: "2em 5em 2em",
       position: "relative",
 
+      [theme.breakpoints.down("md")]: {
+        paddingLeft: "3em",
+        paddingRight: "1em",
+      },
+
       [theme.breakpoints.down("sm")]: {
-        padding: "2em 3em 2em",
+        padding: "2em 0 2em 3em",
       },
 
       [theme.breakpoints.down("xs")]: {
@@ -226,16 +232,22 @@ const Footer = () => {
           <Grid
             container
             direction="column"
-            style={{ textAlign: matchesXS ? "center" : "inherit" }}
+            style={{
+              textAlign: matchesXS ? "center" : "inherit",
+              marginRight: "5em",
+              alignSelf: "center",
+            }}
           >
-            <Button
-              variant="contained"
-              component={Link}
-              to="/invite"
-              className={classes.btn}
-            >
-              Request Invite
-            </Button>
+            <Grid item>
+              <Button
+                variant="contained"
+                component={Link}
+                to="/invite"
+                className={classes.btn}
+              >
+                Request Invite
+              </Button>
+            </Grid>
             <Typography variant="subtitle1" className={classes.copyright}>
               &copy; Easybank. All Rights Reserved
             </Typography>

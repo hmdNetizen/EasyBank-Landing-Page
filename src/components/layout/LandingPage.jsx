@@ -25,9 +25,12 @@ import confettiImg from "../../images/image-confetti.jpg";
 
 const LandingPage = () => {
   const useStyles = makeStyles((theme) => ({
+    parentContainer: {
+      maxWidth: "100%",
+    },
     sectionContainer: {
+      maxWidth: "100%",
       background: theme.palette.common.lighterGrey,
-      width: "100%",
       paddingBottom: "2em",
     },
     btn: {
@@ -88,8 +91,6 @@ const LandingPage = () => {
       },
     },
     primaryContentContainer: {
-      paddingLeft: "5em",
-
       [theme.breakpoints.down("md")]: {
         paddingLeft: "3em",
         paddingRight: "3em",
@@ -101,6 +102,9 @@ const LandingPage = () => {
     primaryHeading: {
       [theme.breakpoints.down("md")]: {
         fontSize: "2.5rem",
+      },
+      [theme.breakpoints.down("xs")]: {
+        marginTop: "-1.5em",
       },
     },
     secondaryHeading: {
@@ -119,6 +123,7 @@ const LandingPage = () => {
       },
     },
     midSectionContainer: {
+      maxWidth: "100%",
       background: theme.palette.common.lightGrey,
       padding: "5em 5em 3em 5em",
 
@@ -139,8 +144,12 @@ const LandingPage = () => {
       },
 
       [theme.breakpoints.down("sm")]: {
-        padding: "5em 3em 3em 3em",
+        padding: "1.5em 3em 3em 3em",
       },
+    },
+    card: {
+      minHeight: "36em",
+      boxShadow: theme.shadows[10],
     },
     cardImg: {
       maxWidth: "100%",
@@ -169,7 +178,7 @@ const LandingPage = () => {
   const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   return (
-    <Grid container direction="column">
+    <Grid container direction="column" className={classes.parentContainer}>
       {/* Top Section */}
       <Grid item>
         <Grid
@@ -180,7 +189,11 @@ const LandingPage = () => {
           alignItems="center"
         >
           <Grid item md={5} className={classes.primaryContentContainer}>
-            <Grid container direction="column">
+            <Grid
+              container
+              direction="column"
+              style={{ paddingLeft: !matchesMD ? "5em" : 0 }}
+            >
               <Grid
                 item
                 style={{
@@ -205,7 +218,7 @@ const LandingPage = () => {
                   digital banking
                 </Typography>
                 <Typography
-                  varian="subtitle1"
+                  variant="subtitle1"
                   gutterBottom
                   style={{ textAlign: matchesXS ? "justify" : "inherit" }}
                 >
@@ -431,16 +444,21 @@ const LandingPage = () => {
           className={classes.bottomSectionContainer}
         >
           <Grid item>
-            <Typography variant="h3">Latest Articles</Typography>
+            <Typography
+              variant="h3"
+              style={{ textAlign: matchesSM ? "center" : "inherit" }}
+            >
+              Latest Articles
+            </Typography>
           </Grid>
           <Grid item>
             <Grid
               container
-              direction={matchesSM ? "column" : "rows"}
+              direction={matchesSM ? "column" : "row"}
               spacing={3}
             >
               <Grid item lg={3} md={6}>
-                <Card style={{ minHeight: "36em" }}>
+                <Card className={classes.card}>
                   <CardActionArea>
                     <CardMedia
                       image={currency}
@@ -474,7 +492,7 @@ const LandingPage = () => {
                 </Card>
               </Grid>
               <Grid item lg={3} md={6}>
-                <Card style={{ minHeight: "36em" }}>
+                <Card className={classes.card}>
                   <CardActionArea>
                     <CardMedia
                       image={restaurantImg}
@@ -507,7 +525,7 @@ const LandingPage = () => {
                 </Card>
               </Grid>
               <Grid item lg={3} md={6}>
-                <Card style={{ minHeight: "36em" }}>
+                <Card className={classes.card}>
                   <CardActionArea>
                     <CardMedia
                       image={planeImg}
@@ -540,7 +558,7 @@ const LandingPage = () => {
                 </Card>
               </Grid>
               <Grid item lg={3} md={6}>
-                <Card style={{ minHeight: "36em" }}>
+                <Card className={classes.card}>
                   <CardActionArea>
                     <CardMedia
                       image={confettiImg}

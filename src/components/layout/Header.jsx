@@ -39,10 +39,19 @@ const Header = () => {
     },
     toolbarMargin: {
       marginBottom: "4rem",
+      [theme.breakpoints.down("sm")]: {
+        marginBottom: "4.5rem",
+      },
     },
     logo: {
       [theme.breakpoints.down("md")]: {
         height: "2.5rem",
+      },
+    },
+    logoButton: {
+      padding: 0,
+      "&:hover": {
+        background: "transparent",
       },
     },
     tab: {
@@ -208,6 +217,7 @@ const Header = () => {
             component={Link}
             to="/invite"
             className={classes.btn}
+            onClick={handleClose}
           >
             Request Invite
           </Button>
@@ -227,7 +237,18 @@ const Header = () => {
     <Fragment>
       <AppBar position="fixed" classes={{ root: classes.appBar }}>
         <Toolbar classes={{ root: classes.toolbar }}>
-          <img src={logo} alt="logo" className={classes.logo} />
+          <Button
+            disableRipple
+            className={classes.logoButton}
+            component={Link}
+            to="/"
+            onClick={() => {
+              setValue(0);
+              setSelectedList(0);
+            }}
+          >
+            <img src={logo} alt="logo" className={classes.logo} />
+          </Button>
           {matchesMD ? drawer : tab}
         </Toolbar>
       </AppBar>
