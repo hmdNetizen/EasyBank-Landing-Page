@@ -65,7 +65,7 @@ const LandingPage = () => {
     phone: {
       width: "40em",
       position: "absolute",
-      marginLeft: "20em",
+      marginLeft: "15em",
       marginTop: "-7em",
 
       [theme.breakpoints.down("md")]: {
@@ -152,6 +152,10 @@ const LandingPage = () => {
     cardHeader: {
       fontSize: "1.3rem",
       marginTop: ".5rem",
+
+      "&:hover": {
+        color: theme.palette.common.green,
+      },
       [theme.breakpoints.down("md")]: {
         textAlign: "center",
       },
