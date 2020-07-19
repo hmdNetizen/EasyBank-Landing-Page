@@ -16,14 +16,30 @@ const Footer = () => {
       background: theme.palette.common.blue,
       padding: "2em 5em 2em",
       position: "relative",
+
+      [theme.breakpoints.down("sm")]: {
+        padding: "2em 3em 2em",
+      },
+
+      [theme.breakpoints.down("xs")]: {
+        padding: "2em 5em 2em",
+      },
     },
     mainFooterContainer: {
       position: "absolute",
       top: "50%",
-      transform: "translateY(-50%)",
+      transform: "translateY(-50%) ",
     },
     leftColSubContainer: {
       marginRight: "5em",
+
+      [theme.breakpoints.down("sm")]: {
+        marginRight: "2em",
+      },
+
+      [theme.breakpoints.down("xs")]: {
+        marginRight: 0,
+      },
     },
     socialIcon: {
       fill: "#fff",
@@ -45,6 +61,9 @@ const Footer = () => {
       "&:hover": {
         color: theme.palette.common.green,
       },
+      [theme.breakpoints.down("xs")]: {
+        marginBottom: "1em",
+      },
     },
     copyright: {
       fontSize: ".9rem",
@@ -58,13 +77,24 @@ const Footer = () => {
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   return (
     <footer className={classes.footer}>
-      <Grid container justify="flex-start" alignItems="center">
+      <Grid container justify="center" alignItems="center">
         <Grid item>
           {/* Left side container */}
-          <Grid container direction={matchesSM ? "column" : "row"}>
+          <Grid
+            container
+            direction={matchesSM ? "column" : "row"}
+            alignItems={matchesXS ? "center" : undefined}
+            justify={matchesXS ? "center" : undefined}
+          >
             <Grid item className={classes.leftColSubContainer}>
               <Grid container direction="column">
-                <Grid item style={{ marginBottom: "2em" }}>
+                <Grid
+                  item
+                  style={{
+                    marginBottom: "1.5em",
+                    textAlign: matchesXS ? "center" : "inherit",
+                  }}
+                >
                   <img src={logo} alt="Easybank logo" />
                 </Grid>
                 <Grid item>
@@ -74,8 +104,12 @@ const Footer = () => {
                     spacing={2}
                     alignItems="center"
                     justify="center"
+                    style={{ marginBottom: matchesSM ? "1em" : 0 }}
                   >
-                    <Grid item>
+                    <Grid
+                      item
+                      style={{ textAlign: matchesXS ? "center" : "inherit" }}
+                    >
                       <a href="https://facebook.com">
                         <SocialIcons d="M18.896 0H1.104C.494 0 0 .494 0 1.104v17.793C0 19.506.494 20 1.104 20h9.58v-7.745H8.076V9.237h2.606V7.01c0-2.583 1.578-3.99 3.883-3.99 1.104 0 2.052.082 2.329.119v2.7h-1.598c-1.254 0-1.496.597-1.496 1.47v1.928h2.989l-.39 3.018h-2.6V20h5.098c.608 0 1.102-.494 1.102-1.104V1.104C20 .494 19.506 0 18.896 0z" />
                       </a>
@@ -86,7 +120,7 @@ const Footer = () => {
                       </a>
                     </Grid>
                     <Grid item>
-                      <a href="http://twitter.com">
+                      <a href="https://twitter.com">
                         <SocialIcons d="M20.667 2.797a8.192 8.192 0 01-2.357.646 4.11 4.11 0 001.804-2.27 8.22 8.22 0 01-2.606.996A4.096 4.096 0 0014.513.873c-2.649 0-4.595 2.472-3.997 5.038a11.648 11.648 0 01-8.457-4.287 4.109 4.109 0 001.27 5.478A4.086 4.086 0 011.47 6.59c-.045 1.901 1.317 3.68 3.29 4.075a4.113 4.113 0 01-1.853.07 4.106 4.106 0 003.834 2.85 8.25 8.25 0 01-6.075 1.7 11.616 11.616 0 006.29 1.843c7.618 0 11.922-6.434 11.662-12.205a8.354 8.354 0 002.048-2.124z" />
                       </a>
                     </Grid>
@@ -106,8 +140,15 @@ const Footer = () => {
             </Grid>
             <Grid item className={classes.leftColSubContainer}>
               {/* left side second column */}
-              <Grid container direction="column">
-                <Grid item>
+              <Grid
+                container
+                direction="column"
+                alignItems={matchesXS ? "center" : undefined}
+              >
+                <Grid
+                  item
+                  style={{ textAlign: matchesXS ? "center" : "inherit" }}
+                >
                   <Typography
                     component={Link}
                     to="/about"
@@ -141,7 +182,11 @@ const Footer = () => {
             </Grid>
             <Grid item>
               {/* left hand third column */}
-              <Grid container direction="column">
+              <Grid
+                container
+                direction="column"
+                alignItems={matchesXS ? "center" : undefined}
+              >
                 <Grid item>
                   <Typography
                     component={Link}
@@ -162,7 +207,7 @@ const Footer = () => {
                     Support
                   </Typography>
                 </Grid>
-                <Grid item>
+                <Grid item style={{ marginBottom: matchesXS ? ".7em" : 0 }}>
                   <Typography
                     component={Link}
                     to="/about"
@@ -178,7 +223,11 @@ const Footer = () => {
         </Grid>
         <Grid item style={{ marginLeft: matchesXS ? 0 : "auto" }}>
           {/* Right side second column */}
-          <Grid container direction="column" style={{ textAlign: "center" }}>
+          <Grid
+            container
+            direction="column"
+            style={{ textAlign: matchesXS ? "center" : "inherit" }}
+          >
             <Button
               variant="contained"
               component={Link}
@@ -200,7 +249,10 @@ const Footer = () => {
               variant="caption"
               style={{ color: theme.palette.common.lightGrey }}
             >
-              Coded by Hamed Jimoh
+              Coded by{" "}
+              <span style={{ color: theme.palette.common.green }}>
+                Hamed Jimoh
+              </span>
             </Typography>
           </Grid>
         </Grid>
