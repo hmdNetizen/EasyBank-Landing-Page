@@ -13,28 +13,21 @@ import SocialIcons from "../SocialIcons";
 const Footer = () => {
   const useStyles = makeStyles((theme) => ({
     footer: {
-      maxWidth: "100%",
+      width: "100%",
       background: theme.palette.common.blue,
-      padding: "2em 5em 2em",
-      position: "relative",
 
-      [theme.breakpoints.down("md")]: {
-        paddingLeft: "3em",
-        paddingRight: "1em",
-      },
+      border: "1px solid white",
+    },
+    mainFooterContainer: {
+      padding: "3em 5em 3em 5em",
 
       [theme.breakpoints.down("sm")]: {
-        padding: "2em 0 2em 3em",
+        padding: "2em 1.5em 2em",
       },
 
       [theme.breakpoints.down("xs")]: {
-        padding: "2em 5em 2em",
+        padding: "2em 4em 2em 4em",
       },
-    },
-    mainFooterContainer: {
-      position: "absolute",
-      top: "50%",
-      transform: "translateY(-50%) ",
     },
     leftColSubContainer: {
       marginRight: "5em",
@@ -55,6 +48,7 @@ const Footer = () => {
     },
     btn: {
       ...theme.typography.btn,
+      padding: "0.65rem 2rem",
       opacity: 0.9,
       "&:hover": {
         opacity: 1,
@@ -83,7 +77,12 @@ const Footer = () => {
   const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
   return (
     <footer className={classes.footer}>
-      <Grid container justify="center" alignItems="center">
+      <Grid
+        container
+        justify={matchesXS ? "center" : "space-around"}
+        alignItems="center"
+        className={classes.mainFooterContainer}
+      >
         <Grid item>
           {/* Left side container */}
           <Grid
@@ -227,14 +226,13 @@ const Footer = () => {
             </Grid>
           </Grid>
         </Grid>
-        <Grid item style={{ marginLeft: matchesXS ? 0 : "auto" }}>
+        <Grid item>
           {/* Right side second column */}
           <Grid
             container
             direction="column"
             style={{
               textAlign: matchesXS ? "center" : "inherit",
-              marginRight: "5em",
               alignSelf: "center",
             }}
           >

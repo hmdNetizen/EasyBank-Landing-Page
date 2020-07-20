@@ -26,7 +26,7 @@ import confettiImg from "../../images/image-confetti.jpg";
 const LandingPage = () => {
   const useStyles = makeStyles((theme) => ({
     parentContainer: {
-      maxWidth: "100%",
+      minWidth: "100%",
     },
     sectionContainer: {
       maxWidth: "100%",
@@ -91,6 +91,7 @@ const LandingPage = () => {
       },
     },
     primaryContentContainer: {
+      width: "100%",
       [theme.breakpoints.down("md")]: {
         paddingLeft: "3em",
         paddingRight: "3em",
@@ -104,6 +105,7 @@ const LandingPage = () => {
         fontSize: "2.5rem",
       },
       [theme.breakpoints.down("xs")]: {
+        fontSize: "1.5rem",
         marginTop: "-1.5em",
       },
     },
@@ -115,11 +117,19 @@ const LandingPage = () => {
         fontSize: "2rem",
         textAlign: "center",
       },
+
+      [theme.breakpoints.down("xs")]: {
+        fontSize: "1.2rem",
+      },
     },
     tertiaryHeading: {
       fontSize: "1.5rem",
       [theme.breakpoints.down("md")]: {
         fontSize: "1.3rem",
+      },
+
+      [theme.breakpoints.down("xs")]: {
+        fontSize: "1rem",
       },
     },
     midSectionContainer: {

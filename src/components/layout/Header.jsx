@@ -23,18 +23,11 @@ const Header = () => {
     appBar: {
       background: "white",
       zIndex: theme.zIndex.modal + 1,
-
-      [theme.breakpoints.down("md")]: {
-        padding: "0 1.5em 0 1.5em",
-      },
-
-      [theme.breakpoints.down("xs")]: {
-        padding: "0 1em 0 .5em",
-      },
+      border: "1px solid red",
     },
     toolbar: {
       display: "flex",
-      justifyContent: "space-around",
+      justifyContent: "space-between",
       alignItems: "center",
 
       [theme.breakpoints.down("md")]: {
@@ -72,7 +65,7 @@ const Header = () => {
     btn: {
       ...theme.typography.btn,
       [theme.breakpoints.down("sm")]: {
-        padding: "0.85rem 2rem",
+        padding: "0.85rem 0",
       },
     },
     iconBtn: {
