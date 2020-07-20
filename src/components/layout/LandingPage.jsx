@@ -39,6 +39,7 @@ const LandingPage = () => {
     phoneContainer: {
       width: "100%",
       height: "45em",
+      overflow: "hidden",
 
       [theme.breakpoints.down("xs")]: {
         height: "40em",
@@ -83,9 +84,9 @@ const LandingPage = () => {
 
       [theme.breakpoints.down("xs")]: {
         marginLeft: "0",
-        width: "30em",
+        width: "100%",
         display: "block",
-        top: "2em",
+        top: "2.2em",
         left: "50%",
         transform: "translateX(-50%)",
       },

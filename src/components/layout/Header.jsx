@@ -23,7 +23,6 @@ const Header = () => {
     appBar: {
       background: "white",
       zIndex: theme.zIndex.modal + 1,
-      border: "1px solid red",
     },
     toolbar: {
       display: "flex",

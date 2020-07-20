@@ -15,8 +15,6 @@ const Footer = () => {
     footer: {
       width: "100%",
       background: theme.palette.common.blue,
-
-      border: "1px solid white",
     },
     mainFooterContainer: {
       padding: "3em 5em 3em 5em",
@@ -26,7 +24,7 @@ const Footer = () => {
       },
 
       [theme.breakpoints.down("xs")]: {
-        padding: "2em 4em 2em 4em",
+        padding: "5em 4em 2em 4em",
       },
     },
     leftColSubContainer: {
