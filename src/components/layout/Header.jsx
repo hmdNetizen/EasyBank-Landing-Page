@@ -47,6 +47,9 @@ const Header = () => {
       [theme.breakpoints.down("md")]: {
         height: "2.5rem",
       },
+      [theme.breakpoints.down("sm")]: {
+        height: "1.5rem",
+      },
     },
     logoButton: {
       padding: 0,
@@ -76,6 +79,9 @@ const Header = () => {
     menuIcon: {
       width: "3rem",
       height: "3rem",
+      [theme.breakpoints.down("xs")]: {
+        marginRight: "1.5rem",
+      },
     },
     listItem: {
       padding: ".7rem 3rem",
