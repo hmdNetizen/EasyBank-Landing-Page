@@ -25,6 +25,10 @@ const Header = () => {
       zIndex: theme.zIndex.modal + 1,
 
       [theme.breakpoints.down("md")]: {
+        padding: "0 1.5em 0 1.5em",
+      },
+
+      [theme.breakpoints.down("xs")]: {
         padding: "0 1em 0 .5em",
       },
     },
