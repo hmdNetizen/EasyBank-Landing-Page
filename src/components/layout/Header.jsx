@@ -25,7 +25,7 @@ const Header = () => {
       zIndex: theme.zIndex.modal + 1,
 
       [theme.breakpoints.down("md")]: {
-        padding: "0 0 0 1.5rem",
+        padding: "0 1em 0 .5em",
       },
     },
     toolbar: {
@@ -79,9 +79,6 @@ const Header = () => {
     menuIcon: {
       width: "3rem",
       height: "3rem",
-      [theme.breakpoints.down("xs")]: {
-        marginRight: "1.5rem",
-      },
     },
     listItem: {
       padding: ".7rem 3rem",
