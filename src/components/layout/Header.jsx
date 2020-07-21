@@ -64,7 +64,7 @@ const Header = () => {
     btn: {
       ...theme.typography.btn,
       [theme.breakpoints.down("sm")]: {
-        padding: "0.85rem 0",
+        padding: "0.85rem 2rem",
       },
     },
     iconBtn: {

@@ -14,19 +14,23 @@ const Footer = () => {
   const useStyles = makeStyles((theme) => ({
     footer: {
       width: "100%",
+      height: "auto",
       background: theme.palette.common.blue,
-    },
-    mainFooterContainer: {
-      padding: "3em 5em 3em 5em",
+      padding: "3em 0 3em 0",
+      position: "relative",
+      zIndex: 10,
 
       [theme.breakpoints.down("sm")]: {
         padding: "2em 1.5em 2em",
       },
 
       [theme.breakpoints.down("xs")]: {
-        padding: "5em 4em 2em 4em",
+        padding: "3em 4em 2em 4em",
       },
     },
+    // mainFooterContainer: {
+    //   position: "absolute",
+    // },
     leftColSubContainer: {
       marginRight: "5em",
 
@@ -36,12 +40,6 @@ const Footer = () => {
 
       [theme.breakpoints.down("xs")]: {
         marginRight: 0,
-      },
-    },
-    socialIcon: {
-      fill: "#fff",
-      "&:hover": {
-        fill: "red",
       },
     },
     btn: {
@@ -56,10 +54,12 @@ const Footer = () => {
       fontSize: "1rem",
       color: theme.palette.common.lighterGrey,
       textDecoration: "none",
+      display: "inline-block",
+      marginBottom: ".5em",
       "&:hover": {
         color: theme.palette.common.green,
       },
-      [theme.breakpoints.down("xs")]: {
+      [theme.breakpoints.down("sm")]: {
         marginBottom: "1em",
       },
     },
@@ -77,6 +77,7 @@ const Footer = () => {
     <footer className={classes.footer}>
       <Grid
         container
+        direction={matchesXS ? "column" : "row"}
         justify={matchesXS ? "center" : "space-around"}
         alignItems="center"
         className={classes.mainFooterContainer}
@@ -231,7 +232,6 @@ const Footer = () => {
             direction="column"
             style={{
               textAlign: matchesXS ? "center" : "inherit",
-              alignSelf: "center",
             }}
           >
             <Grid item>

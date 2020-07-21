@@ -32,6 +32,7 @@ const LandingPage = () => {
       maxWidth: "100%",
       background: theme.palette.common.lighterGrey,
       paddingBottom: "2em",
+      position: "relative",
     },
     btn: {
       ...theme.typography.btn,
@@ -84,9 +85,9 @@ const LandingPage = () => {
 
       [theme.breakpoints.down("xs")]: {
         marginLeft: "0",
-        width: "100%",
+        maxWidth: "30em",
         display: "block",
-        top: "2.2em",
+        top: "-1em",
         left: "50%",
         transform: "translateX(-50%)",
       },
@@ -134,7 +135,6 @@ const LandingPage = () => {
       },
     },
     midSectionContainer: {
-      maxWidth: "100%",
       background: theme.palette.common.lightGrey,
       padding: "5em 5em 3em 5em",
 
@@ -149,9 +149,11 @@ const LandingPage = () => {
     bottomSectionContainer: {
       background: theme.palette.common.lighterGrey,
       padding: "5em 5em 3em 5em",
+      position: "relative",
+      zIndex: 9,
 
       [theme.breakpoints.down("md")]: {
-        padding: "5em 3em 3em 3em",
+        padding: "2em 3em 3em 3em",
       },
 
       [theme.breakpoints.down("sm")]: {
@@ -199,7 +201,7 @@ const LandingPage = () => {
           justify="center"
           alignItems="center"
         >
-          <Grid item md={5} className={classes.primaryContentContainer}>
+          <Grid item xs={12} md={5} className={classes.primaryContentContainer}>
             <Grid
               container
               direction="column"
@@ -219,11 +221,11 @@ const LandingPage = () => {
                   Next generation{" "}
                   <br
                     style={{
-                      display: matchesSM
+                      display: matchesXS
+                        ? "inherit"
+                        : matchesSM
                         ? "none"
-                        : matchesXS
-                        ? "inline"
-                        : "inline",
+                        : "inherit",
                     }}
                   />{" "}
                   digital banking
@@ -234,8 +236,12 @@ const LandingPage = () => {
                   style={{ textAlign: matchesXS ? "justify" : "inherit" }}
                 >
                   Take your financial life online. Your Easybank account{" "}
-                  <br style={{ display: matchesMD ? "none" : "inline" }} /> will
-                  be a one-stop-shop for spending, saving,
+                  <br
+                    style={{
+                      display: matchesMD ? "none" : "inline",
+                    }}
+                  />{" "}
+                  will be a one-stop-shop for spending, saving,
                   <br style={{ display: matchesMD ? "none" : "inline" }} />{" "}
                   budgeting, investing, and much more.
                 </Typography>
@@ -256,7 +262,7 @@ const LandingPage = () => {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item md={7} className={classes.phoneContainer}>
+          <Grid item xs={12} md={7} className={classes.phoneContainer}>
             <img
               src={phoneMockups}
               alt="Phone display"
@@ -267,7 +273,7 @@ const LandingPage = () => {
         </Grid>
       </Grid>
       {/* Middle Section */}
-      <Grid item>
+      <Grid item style={{ minWidth: "100%" }}>
         <Grid
           container
           direction="column"
@@ -457,7 +463,10 @@ const LandingPage = () => {
           <Grid item>
             <Typography
               variant="h3"
-              style={{ textAlign: matchesSM ? "center" : "inherit" }}
+              style={{
+                textAlign: matchesSM ? "center" : "inherit",
+                fontSize: matchesXS ? "1.5rem" : matchesMD ? "2rem" : "2.5rem",
+              }}
             >
               Latest Articles
             </Typography>
