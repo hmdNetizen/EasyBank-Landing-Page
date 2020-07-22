@@ -10,7 +10,7 @@ import { makeStyles, useTheme } from "@material-ui/styles";
 import logo from "../../images/logo-footer.svg";
 import SocialIcons from "../SocialIcons";
 
-const Footer = () => {
+const Footer = ({ setValue }) => {
   const useStyles = makeStyles((theme) => ({
     footer: {
       width: "100%",
@@ -158,6 +158,7 @@ const Footer = () => {
                     to="/about"
                     variant="subtitle1"
                     className={classes.link}
+                    onClick={() => setValue(1)}
                   >
                     About Us
                   </Typography>
@@ -167,6 +168,7 @@ const Footer = () => {
                       to="/contact"
                       variant="subtitle1"
                       className={classes.link}
+                      onClick={() => setValue(2)}
                     >
                       Contact
                     </Typography>
@@ -177,6 +179,7 @@ const Footer = () => {
                       to="/blog"
                       variant="subtitle1"
                       className={classes.link}
+                      onClick={() => setValue(3)}
                     >
                       Blog
                     </Typography>
@@ -197,6 +200,7 @@ const Footer = () => {
                     to="/career"
                     variant="subtitle1"
                     className={classes.link}
+                    onClick={() => setValue(4)}
                   >
                     Career
                   </Typography>
@@ -207,6 +211,7 @@ const Footer = () => {
                     to="/contact"
                     variant="subtitle1"
                     className={classes.link}
+                    onClick={() => setValue(2)}
                   >
                     Support
                   </Typography>
@@ -217,6 +222,7 @@ const Footer = () => {
                     to="/about"
                     variant="subtitle1"
                     className={classes.link}
+                    onClick={() => setValue(1)}
                   >
                     Privacy Policy
                   </Typography>
@@ -240,6 +246,7 @@ const Footer = () => {
                 component={Link}
                 to="/invite"
                 className={classes.btn}
+                onClick={() => setValue(5)}
               >
                 Request Invite
               </Button>

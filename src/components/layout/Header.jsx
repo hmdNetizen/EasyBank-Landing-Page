@@ -18,7 +18,7 @@ import { useTheme } from "@material-ui/core/styles";
 
 import logo from "../../images/logo.svg";
 
-const Header = () => {
+const Header = (props) => {
   const useStyles = makeStyles((theme) => ({
     appBar: {
       background: "white",
@@ -64,7 +64,9 @@ const Header = () => {
     btn: {
       ...theme.typography.btn,
       [theme.breakpoints.down("sm")]: {
-        padding: "0.85rem 2rem",
+        padding: "0.85rem 1rem",
+        fontSize: ".85rem",
+        marginTop: ".5em",
       },
     },
     iconBtn: {
@@ -75,6 +77,9 @@ const Header = () => {
     menuIcon: {
       width: "3rem",
       height: "3rem",
+    },
+    list: {
+      textAlign: "center",
     },
     listItem: {
       padding: ".7rem 3rem",
@@ -104,9 +109,9 @@ const Header = () => {
 
   const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
 
-  const [value, setValue] = useState(0);
+  const { value, setValue, selectedList, setSelectedList } = props;
+
   const [openDrawer, setOpenDrawer] = useState(false);
-  const [selectedList, setSelectedList] = useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -136,6 +141,9 @@ const Header = () => {
             setValue(tab.id);
             setSelectedList(tab.id);
           }
+          break;
+        case "/invite":
+          setValue(5);
           break;
         default:
           break;
@@ -168,6 +176,7 @@ const Header = () => {
         component={Link}
         to="/invite"
         className={classes.btn}
+        onClick={() => setValue(5)}
       >
         Request Invite
       </Button>
@@ -216,7 +225,10 @@ const Header = () => {
             component={Link}
             to="/invite"
             className={classes.btn}
-            onClick={handleClose}
+            onClick={() => {
+              handleClose();
+              setValue(5);
+            }}
           >
             Request Invite
           </Button>

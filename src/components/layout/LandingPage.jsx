@@ -23,7 +23,7 @@ import restaurantImg from "../../images/image-restaurant.jpg";
 import planeImg from "../../images/image-plane.jpg";
 import confettiImg from "../../images/image-confetti.jpg";
 
-const LandingPage = () => {
+const LandingPage = ({ setValue }) => {
   const useStyles = makeStyles((theme) => ({
     parentContainer: {
       minWidth: "100%",
@@ -163,6 +163,7 @@ const LandingPage = () => {
     card: {
       minHeight: "36em",
       boxShadow: theme.shadows[10],
+      paddingBottom: "1em",
     },
     cardImg: {
       maxWidth: "100%",
@@ -256,6 +257,7 @@ const LandingPage = () => {
                   to="/invite"
                   className={classes.btn}
                   style={{ marginTop: "2em" }}
+                  onClick={() => setValue(5)}
                 >
                   Request Invite
                 </Button>
@@ -501,7 +503,10 @@ const LandingPage = () => {
                       <Typography
                         variant="subtitle2"
                         gutterBottom
-                        style={{ textAlign: !matchesMD ? "left" : "center" }}
+                        style={{
+                          textAlign: !matchesMD ? "left" : "center",
+                          fontSize: !matchesSM ? ".9rem" : "1rem",
+                        }}
                       >
                         The world is getting smaller and we’re becoming more
                         mobile. So why should you be forced to only receive
@@ -534,7 +539,10 @@ const LandingPage = () => {
                       <Typography
                         variant="subtitle2"
                         gutterBottom
-                        style={{ textAlign: !matchesMD ? "left" : "center" }}
+                        style={{
+                          textAlign: !matchesMD ? "left" : "center",
+                          fontSize: !matchesSM ? ".9rem" : "1rem",
+                        }}
                       >
                         Our simple budgeting feature allows you to separate out
                         your spending and set realistic limits each month. That
@@ -567,7 +575,10 @@ const LandingPage = () => {
                       <Typography
                         variant="subtitle2"
                         gutterBottom
-                        style={{ textAlign: !matchesMD ? "left" : "center" }}
+                        style={{
+                          textAlign: !matchesMD ? "left" : "center",
+                          fontSize: !matchesSM ? ".9rem" : "1rem",
+                        }}
                       >
                         We want you to enjoy your travels. This is why we don’t
                         charge any fees on purchases while you’re abroad. We’ll
@@ -600,7 +611,10 @@ const LandingPage = () => {
                       <Typography
                         variant="subtitle2"
                         gutterBottom
-                        style={{ textAlign: !matchesMD ? "left" : "center" }}
+                        style={{
+                          textAlign: !matchesMD ? "left" : "center",
+                          fontSize: !matchesSM ? ".9rem" : "1rem",
+                        }}
                       >
                         After a lot of hard work by the whole team, we’re
                         excited to launch our closed beta. It’s easy to request
